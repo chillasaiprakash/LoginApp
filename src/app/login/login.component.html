@@ -1,0 +1,39 @@
+<form [formGroup]="loginForm"  class="border p-3 rounded-4" >
+    <div class="imgcontainer">
+      <img src="https://lh3.googleusercontent.com/YtXTsa-6SaaMl02-OUo8iRztlX5Thu4aCLavunIV1M5hm9y4ySTPpMjpY44fL4ayz7Se" alt="Avatar" class="avatar">
+    </div>
+  
+    <div class="container">
+      <label for="uname" class="form-label"><b>Username</b></label>
+      <input type="text"  placeholder="Enter Username" class="form-control" id="username" formControlName="username" >
+       <div class="form-text text-danger"
+                *ngIf="UserName.errors?.['required'] && (UserName.touched || UserName.dirty)">USER Name is required
+        </div>
+        <div class="form-text text-danger"
+                *ngIf="UserName.errors?.['pattern'] && (UserName.touched || UserName.dirty)">USER Name should
+                contain only letters
+        </div>
+        
+    </div>
+    <div class="container">
+      <label for="psw"><b>Password</b></label>
+      <input [type]="inputType" class="form-control" placeholder="Enter Password" id="psw" formControlName="psw">
+      <div class="form-text text-danger"
+              *ngIf="Psw.errors?.['required'] && (Psw.touched || Psw.dirty)">Password is required
+      </div>
+  
+    </div>
+
+
+    <div>
+      <button type="submit" (click)="loginUser()">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+  
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>

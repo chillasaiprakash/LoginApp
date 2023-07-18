@@ -1,0 +1,129 @@
+<form [formGroup]="registerForm"  class="border p-3 rounded-4" style="background-color: rgb(183, 205, 214); ">
+    <div class="row g-0">
+        <div class="col text-center p-2 mb-3 bg-light">
+            <span class="fs-3">Register</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mb-3">
+            <label for="firstname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstname" formControlName="firstname" [(ngModel)]="us.firstname">
+            <div class="form-text text-danger"
+                *ngIf="FirstName.errors?.['required'] && (FirstName.touched || FirstName.dirty)">First Name is required
+            </div>
+            <div class="form-text text-danger"
+                *ngIf="FirstName.errors?.['pattern'] && (FirstName.touched || FirstName.dirty)">First Name should
+                contain only letters</div>
+        </div>
+        <div class="col mb-3">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastname" formControlName="lastname" [(ngModel)]="us.lastname">
+            <div class="form-text text-danger"
+                *ngIf="LastName.errors?.['required'] && (LastName.touched || LastName.dirty)">Last Name is required
+            </div>
+            <div class="form-text text-danger"
+                *ngIf="LastName.errors?.['pattern'] && (LastName.touched || LastName.dirty)">Last Name should
+                contain only letters</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" formControlName="email" [(ngModel)]="us.email">
+            <div class="form-text text-danger"
+            *ngIf="Email.errors?.['required'] && (Email.touched || Email.dirty)">Email is required
+        </div>
+        <div class="form-text text-danger"
+            *ngIf="Email.errors?.['email'] && (Email.touched || Email.dirty)">Email is invalid</div>
+        </div>
+    </div>
+      
+    
+    <div class="row">
+        <div class="col mb-3">
+            <label for="username" class="form-label">USER Name</label>
+            <input type="text" class="form-control" id="username" formControlName="username" [(ngModel)]="us.username">
+            <div class="form-text text-danger"
+                *ngIf="UserName.errors?.['required'] && (FirstName.touched || UserName.dirty)">First Name is required
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mb-3">
+            <label for="mobile" class="form-label">Phone Number</label>
+            <input type="text" class="form-control" id="mobile" formControlName="mobile" [(ngModel)]="us.mobile">
+            <div class="form-text text-danger"
+            *ngIf="Mobile.errors?.['required'] && (Mobile.touched || Mobile.dirty)">Phone number is required
+        </div>
+        <div class="form-text text-danger"
+            *ngIf="Mobile.errors?.['pattern'] && (Mobile.touched || Mobile.dirty)">Phone number is invalid</div>
+        <!-- <div class="form-text text-danger"
+            *ngIf="Mobile.errors?.['minlength'] && (Mobile.touched || Mobile.dirty)">Phone number is too short</div>
+        <div class="form-text text-danger"
+            *ngIf="Mobile.errors?.['maxlength'] && (Mobile.touched || Mobile.dirty)">Phone number is too long</div> -->
+        </div>
+        <div class="col ps-3 mb-3">
+            <div class="m-1">Gender</div>
+            <div class="form-check form-check-inline">
+                <label for="male" class="form-check-label">Male</label>
+                <input type="radio" class="form-check-input" value="m" id="male" formControlName="gender" [(ngModel)]="us.gender">
+            </div>
+            <div class="form-check form-check-inline">
+                <label for="female" class="form-check-label">Female</label>
+                <input type="radio" class="form-check-input" value="f" id="female" formControlName="gender" [(ngModel)]="us.gender">
+            </div>
+            <div class="form-text text-danger"
+            *ngIf="Gender.errors?.['required'] && (Gender.touched || Gender.dirty)">Gender is required
+        </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mb-3">
+            <label for="pwd" class="form-label">Password</label>
+            <input [type]="inputType" class="form-control" id="pwd" formControlName="pwd"[(ngModel)]="us.password" >
+            <input (click)="showPassword($event)" type="checkbox" >Show Password
+            <div class="form-text text-danger"
+            *ngIf="Pwd.errors?.['required'] && (Pwd.touched || Pwd.dirty)">Password is required
+        </div>
+        <div class="form-text text-danger"
+            *ngIf="(Pwd.errors?.['minlength'] || Pwd.errors?.['maxlength']) && (Pwd.touched || Pwd.dirty)">Password must be in between 8 to 15 characters
+        </div>
+        </div>
+        <div class="col mb-3">
+            <label for="rpwd" class="form-label">Repeat Password</label>
+            <input type="password" class="form-control" id="rpwd" formControlName="rpwd">
+            <div class="form-text text-danger" [ngStyle]="{'display':repeatPass}">Password doesn't match</div>
+        </div>
+        <p>By creating an account you agree to our <a href="https://www.youtube.com/static?template=terms" style="color:dodgerblue">Terms & Privacy</a>.</p>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="d-grid">
+                <button type="submit" [disabled]="registerForm.invalid" class="btn btn-success" (click)="registerSubmitted()">Submit</button>
+            </div>
+        </div>
+    </div>
+    <p>If you already a customer <a href="http://localhost:4200/login" style="color:dodgerblue">LOGIN</a>.</p>
+</form>
+<br>
+<!---
+<table class ="table table-border table-stripped table-hover">
+    <thead>
+        <tr>
+            <th>FirstName</th><th>LastName</th><th>Email</th><th>UserName</th><th>PhoneNumber</th><th>Gender</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let u of users">
+            <td>{{u.firstname}}</td>
+            <td>{{u.lastname}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.username}}</td>
+            <td>{{u.mobile}}</td>
+            <td>{{u.gender}}</td>
+
+        </tr>
+    </tbody>
+
+</table>
+-->
