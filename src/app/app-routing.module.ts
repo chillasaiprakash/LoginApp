@@ -4,14 +4,21 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterProductComponent } from './register-product/register-product.component';
+import { LandingComponent } from './landing/landing.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 const routes: Routes = [
 
-  { path: 'register', component: RegisterComponent},
+  { path: 'registration', component: RegisterComponent},
   { path: 'login', component: LoginComponent},
-  { path: '', redirectTo: '/register', pathMatch: 'full' },
   { path:'home', component:HomeComponent},
-  { path:'register-product', component:RegisterProductComponent}
+  { path:'register', component:RegisterProductComponent},
+  { path: '', component: LandingComponent },
+  {
+    path: 'detail/:id', 
+    component: ProductDetailsComponent
+  },
+
     
 
   ];

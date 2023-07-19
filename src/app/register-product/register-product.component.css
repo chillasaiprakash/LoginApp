@@ -39,3 +39,9 @@
     max-width: 4rem;
     max-height: 4rem;
   }
+  .example-card-header{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+   
+  }

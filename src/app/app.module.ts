@@ -26,10 +26,10 @@ import { MatRadioModule } from "@angular/material/radio";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
-//import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-//import { ProductDetailsComponent } from './product-details/product-details.component';
-//import { LandingComponent } from './landing/landing.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { LandingComponent } from './landing/landing.component';
 //import { FlexLayoutModule } from "@angular/flex-layout";
 
 
@@ -40,7 +40,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    RegisterProductComponent
+    RegisterProductComponent,
+    LandingComponent,
+    ProductDetailsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatGridListModule,
     MatButtonToggleModule,
     MatProgressBarModule,
-    MatSnackBarModule,
+    MatSnackBarModule
+   
   
     
     

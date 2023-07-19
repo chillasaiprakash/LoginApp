@@ -14,3 +14,18 @@ form{
     justify-content: center;
     align-items: center;
 }
+
+.center-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-container {
+  background-color: rgb(177, 230, 239);
+  border: 1px solid #040404;
+  border-radius: 8px;
+  padding: 20px;
+  width: 400px;
+}

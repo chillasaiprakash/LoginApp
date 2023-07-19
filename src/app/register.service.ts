@@ -8,6 +8,7 @@ import { Product } from './model/product';
 })
 export class RegisterService {
   baseUrl="http://localhost:8082/user";
+  baseProductUrl="http://localhost:8081";
 
   constructor(private http:HttpClient) { }
 
@@ -28,6 +29,14 @@ export class RegisterService {
     
   }
   public addProduct1(productObject: any) {
-    return this.http.post<Product>(this.baseUrl + "/add", productObject);
+    return this.http.post<Product>(this.baseProductUrl + "/add", productObject);
+  }
+  public getAllProduct(){
+    return this.http.get<Product[]>(this.baseUrl + "/all")
+  }
+
+
+  public getProductById(pid:any){
+    return this.http.get<Product>(this.baseUrl + "/get/by/pid/"+ pid)
   }
 }
